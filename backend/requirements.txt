@@ -1,0 +1,8 @@
+pandas
+matplotlib
+seaborn
+numpy
+uvicorn
+fastapi
+pydantic
+pydantic-settings
