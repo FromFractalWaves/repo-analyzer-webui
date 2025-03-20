@@ -4,6 +4,7 @@
 import React from 'react';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { AnalysisJob, AnalysisData } from '@/types';
 import VisualizationDashboard from '@/components/visualizations/VisualizationDashboard';
 
@@ -24,11 +25,11 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
 }) => {
   if (isLoading) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 flex flex-col items-center justify-center">
+      <Card className="flex flex-col items-center justify-center p-8">
         <Loader2 className="h-12 w-12 animate-spin text-blue-500 mb-4" />
         <h3 className="text-xl font-medium mb-2">Loading Analysis Results...</h3>
         <p className="text-gray-500">This might take a moment for large repositories.</p>
-      </div>
+      </Card>
     );
   }
 
@@ -50,13 +51,15 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
 
   if (!data) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
-        <h3 className="text-xl font-medium mb-2">No Analysis Data Available</h3>
-        <p className="text-gray-500 mb-4">The analysis data for this job is not available.</p>
-        <Button onClick={onRefresh}>
-          Refresh
-        </Button>
-      </div>
+      <Card className="text-center p-8">
+        <CardContent>
+          <h3 className="text-xl font-medium mb-2">No Analysis Data Available</h3>
+          <p className="text-gray-500 mb-4">The analysis data for this job is not available.</p>
+          <Button onClick={onRefresh}>
+            Refresh
+          </Button>
+        </CardContent>
+      </Card>
     );
   }
 

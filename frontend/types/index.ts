@@ -1,4 +1,4 @@
-// analyzer_webui/types/index.ts - Updated with repository types
+// types/index.ts
 export interface Repository {
   id: string;
   name: string;
@@ -20,7 +20,7 @@ export interface AnalysisJob {
   repo_path: string;
   report_path?: string;
   error?: string;
-  repo_id?: string; // Added repo_id to link to Repository
+  repo_id?: string; // Links to Repository
 }
 
 export interface AnalysisRequest {
@@ -28,7 +28,24 @@ export interface AnalysisRequest {
   recursive?: boolean;
   skip_confirmation?: boolean;
   output_name?: string;
-  repo_id?: string; // Added repo_id to link to Repository
+  repo_id?: string; // For linking to Repository
+}
+
+export interface RepositoryFilter {
+  search?: string;
+  is_favorite?: boolean;
+  tags?: string[];
+  sort_by?: 'name' | 'lastAccessed' | 'lastCommitDate';
+  sort_order?: 'asc' | 'desc';
+}
+
+// For displaying in the UI
+export interface RepositorySearchParams {
+  search?: string;
+  isFavorite?: boolean;
+  tags?: string[];
+  sortBy?: 'name' | 'lastAccessed' | 'lastCommitDate';
+  sortOrder?: 'asc' | 'desc';
 }
 
 export interface CommitData {
@@ -36,8 +53,8 @@ export interface CommitData {
   author: string;
   author_email: string;
   author_date: string;
-  committer: string;
-  committer_email: string;
+  committer?: string;
+  committer_email?: string;
   commit_date: string;
   message: string;
 }
@@ -54,84 +71,33 @@ export interface CodeStats {
 }
 
 export interface RepoSummary {
+  name: string;
   num_commits: number;
   num_branches: number;
   total_lines: number;
   file_count: number;
   first_commit?: string;
   last_commit?: string;
-  time_span?: number;
+  time_span_days?: number;
   commits_per_day?: number;
-  avg_time_between_commits?: number;
-  min_time_between_commits?: number;
-  max_time_between_commits?: number;
-  peak_pace_commits?: number;
-  peak_pace_duration?: number;
-  peak_pace_start?: string;
-  peak_pace_end?: string;
-  lines_per_commit?: number;
+  contributor_count?: number;
   frequent_words?: Record<string, number>;
   file_extensions?: Record<string, number>;
 }
 
-export interface AggregateStats {
-  total_commits: number;
-  total_branches: number;
-  total_lines: number;
-  repos_analyzed: number;
-  first_commit?: string;
-  last_commit?: string;
-  time_span?: number;
-  overall_commits_per_day?: number;
-  frequent_words?: Record<string, number>;
-  fastest_pace?: number;
-  fastest_pace_repo?: string;
-}
-
 export interface AnalysisData {
-  commit_data: Record<string, CommitData[]>;
-  branch_data: Record<string, BranchData[]>;
-  code_stats: Record<string, CodeStats>;
-  summary_stats: Record<string, RepoSummary>;
-  aggregate_stats: AggregateStats;
-  data_file?: string;
+  repository: {
+    name: string;
+    path: string;
+  };
+  commits: CommitData[];
+  branches: BranchData[];
+  code_stats: CodeStats;
+  summary: RepoSummary;
 }
 
-// Define the ApiResponse interface for handling responses
+// API response wrapper
 export interface ApiResponse<T> {
   data?: T;
   error?: string;
-}
-
-// HTTP validation error from FastAPI
-export interface ValidationError {
-  loc: (string | number)[];
-  msg: string;
-  type: string;
-}
-
-export interface HTTPValidationError {
-  detail: ValidationError[];
-}
-
-// Enhanced search params for repositories
-export interface RepositorySearchParams {
-  isFavorite?: boolean;
-  tags?: string[];
-  search?: string;
-  sortBy?: 'name' | 'lastAccessed' | 'lastCommitDate';
-  sortOrder?: 'asc' | 'desc';
-}
-
-// Repository creation and update requests
-export interface CreateRepositoryRequest {
-  name: string;
-  path: string;
-  relative_path: string;
-  tags?: string; // Comma-separated tags
-  metadata?: Record<string, any>;
-}
-
-export interface UpdateRepositoryRequest extends Partial<Repository> {
-  id: string; // ID is required for updates
 }

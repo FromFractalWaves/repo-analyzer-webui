@@ -47,18 +47,22 @@ const DirectoryBrowser: React.FC<DirectoryBrowserProps> = ({
       if (result.error) {
         setError(result.error);
       } else if (result.data) {
-        setDirContents(result.data.contents);
-        setCurrentPath(result.data.current_dir);
+        // Ensure data is available before accessing properties
+        const contents = result.data.contents || [];
+        const currentDir = result.data.current_dir || path;
+        
+        setDirContents(contents);
+        setCurrentPath(currentDir);
         setParentPath(result.data.parent_dir);
-        setCustomPath(result.data.current_dir);
+        setCustomPath(currentDir);
         
         // Update navigation history
         if (addToHistory) {
           // If we're navigating from a point in history, trim the future history
           if (historyIndex < navigationHistory.length - 1) {
-            setNavigationHistory(prev => [...prev.slice(0, historyIndex + 1), result.data.current_dir]);
+            setNavigationHistory(prev => [...prev.slice(0, historyIndex + 1), currentDir]);
           } else {
-            setNavigationHistory(prev => [...prev, result.data.current_dir]);
+            setNavigationHistory(prev => [...prev, currentDir]);
           }
           setHistoryIndex(prev => prev + 1);
         }
@@ -105,14 +109,6 @@ const DirectoryBrowser: React.FC<DirectoryBrowserProps> = ({
       const prevPath = navigationHistory[historyIndex - 1];
       setHistoryIndex(prev => prev - 1);
       loadDirectory(prevPath, false);
-    }
-  };
-
-  const handleHistoryForward = () => {
-    if (historyIndex < navigationHistory.length - 1) {
-      const nextPath = navigationHistory[historyIndex + 1];
-      setHistoryIndex(prev => prev + 1);
-      loadDirectory(nextPath, false);
     }
   };
 
@@ -250,16 +246,7 @@ const DirectoryBrowser: React.FC<DirectoryBrowserProps> = ({
         </Button>
         
         <Button 
-          onClick={() => {
-            // Find any folders in current content
-            const directories = dirContents.filter(item => item.type === 'directory');
-            if (directories.length > 0) {
-              // If there are directories, show them
-            } else {
-              // Use current directory
-              onSelectDirectory(currentPath);
-            }
-          }}
+          onClick={() => onSelectDirectory(currentPath)}
         >
           Use This Directory
         </Button>

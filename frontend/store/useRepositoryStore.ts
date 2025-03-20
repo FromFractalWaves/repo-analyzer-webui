@@ -1,6 +1,6 @@
-// analyzer_webui/store/useRepositoryStore.ts
+// store/useRepositoryStore.ts
 import { create } from 'zustand';
-import { Repository, RepositorySearchParams } from '@/types';
+import { Repository, RepositoryFilter, RepositorySearchParams } from '@/types';
 import { apiService } from '@/services/api';
 
 interface RepositoryState {
@@ -13,9 +13,9 @@ interface RepositoryState {
   searchParams: RepositorySearchParams;
   
   // Actions
-  fetchRepositories: () => Promise<void>;
+  fetchRepositories: (filter?: RepositoryFilter) => Promise<void>;
   getRepository: (id: string) => Promise<Repository | null>;
-  createRepository: (repository: Omit<Repository, 'id' | 'is_favorite'>) => Promise<Repository | null>;
+  createRepository: (repository: Omit<Repository, 'id'>) => Promise<Repository | null>;
   updateRepository: (id: string, repository: Partial<Repository>) => Promise<Repository | null>;
   deleteRepository: (id: string) => Promise<boolean>;
   toggleFavorite: (id: string, isFavorite: boolean) => Promise<Repository | null>;
@@ -27,6 +27,7 @@ interface RepositoryState {
   
   // Filtering and search
   applyFilters: () => void;
+  searchRepositories: (query: string, limit?: number) => Promise<Repository[]>;
 }
 
 export const useRepositoryStore = create<RepositoryState>((set, get) => ({
@@ -40,20 +41,39 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
     sortOrder: 'desc'
   },
   
-  // Fetch all repositories
-  fetchRepositories: async () => {
+  // Fetch repositories with optional filtering
+  fetchRepositories: async (filter?: RepositoryFilter) => {
     set({ loading: true, error: null });
     try {
-      const result = await apiService.getRepositories();
+      // Convert frontend search params to backend filter format if needed
+      const backendFilter: RepositoryFilter | undefined = filter ?? (() => {
+        const { searchParams } = get();
+        if (!searchParams.search && searchParams.isFavorite === undefined && 
+            (!searchParams.tags || searchParams.tags.length === 0) &&
+            !searchParams.sortBy) {
+          return undefined;
+        }
+        
+        return {
+          search: searchParams.search,
+          is_favorite: searchParams.isFavorite,
+          tags: searchParams.tags,
+          sort_by: searchParams.sortBy,
+          sort_order: searchParams.sortOrder
+        };
+      })();
+      
+      const result = await apiService.getRepositories(backendFilter);
       if (result.error) {
         set({ error: result.error, loading: false });
         return;
       }
+      
       set({ 
         repositories: result.data || [], 
+        filteredRepositories: result.data || [],
         loading: false 
       });
-      get().applyFilters();
     } catch (error) {
       set({ 
         error: error instanceof Error ? error.message : 'Failed to fetch repositories', 
@@ -71,6 +91,18 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
         set({ error: result.error, loading: false });
         return null;
       }
+      
+      // Update the repository in the local cache if it exists
+      if (result.data) {
+        set(state => ({
+          repositories: state.repositories.map(repo => 
+            repo.id === id ? result.data! : repo
+          )
+        }));
+        get().applyFilters();
+      }
+      
+      set({ loading: false });
       return result.data || null;
     } catch (error) {
       set({ 
@@ -78,22 +110,23 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
         loading: false 
       });
       return null;
-    } finally {
-      set({ loading: false });
     }
   },
-
+  
+  // Create a new repository
   createRepository: async (repository) => {
     set({ loading: true, error: null });
     try {
-      const result = await apiService.createRepository({
+      // Generate a temporary ID (will be replaced by server-generated ID)
+      const tempRepo: Repository = {
         ...repository,
-        id: '', // Will be assigned by the server
+        id: crypto.randomUUID(),
         is_favorite: false
-      });
+      };
+      
+      const result = await apiService.createRepository(tempRepo);
       
       if (result.error) {
-        console.error("Error creating repository:", result.error);
         set({ error: result.error, loading: false });
         return null;
       }
@@ -109,7 +142,6 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
       set({ loading: false });
       return result.data || null;
     } catch (error) {
-      console.error("Exception in createRepository:", error);
       set({ 
         error: error instanceof Error ? error.message : 'Failed to create repository', 
         loading: false 
@@ -149,6 +181,7 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
         get().applyFilters();
       }
       
+      set({ loading: false });
       return result.data || null;
     } catch (error) {
       set({ 
@@ -156,8 +189,6 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
         loading: false 
       });
       return null;
-    } finally {
-      set({ loading: false });
     }
   },
   
@@ -180,6 +211,7 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
       }));
       get().applyFilters();
       
+      set({ loading: false });
       return true;
     } catch (error) {
       set({ 
@@ -187,8 +219,6 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
         loading: false 
       });
       return false;
-    } finally {
-      set({ loading: false });
     }
   },
   
@@ -215,6 +245,7 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
         get().applyFilters();
       }
       
+      set({ loading: false });
       return result.data || null;
     } catch (error) {
       set({ 
@@ -222,8 +253,6 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
         loading: false 
       });
       return null;
-    } finally {
-      set({ loading: false });
     }
   },
   
@@ -237,7 +266,13 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
     set(state => ({ 
       searchParams: { ...state.searchParams, ...params } 
     }));
-    get().applyFilters();
+    // If we're using client-side filtering, apply the filter
+    if (get().repositories.length > 0) {
+      get().applyFilters();
+    } else {
+      // Otherwise fetch with the new filters
+      get().fetchRepositories();
+    }
   },
   
   // Get all repository tags
@@ -323,5 +358,16 @@ export const useRepositoryStore = create<RepositoryState>((set, get) => ({
     }
     
     set({ filteredRepositories: filtered });
+  },
+  
+  // Search repositories
+  searchRepositories: async (query, limit = 10) => {
+    try {
+      const result = await apiService.searchRepositories(query, limit);
+      return result.data || [];
+    } catch (error) {
+      console.error('Search error:', error);
+      return [];
+    }
   }
 }));

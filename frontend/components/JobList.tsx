@@ -15,6 +15,25 @@ interface JobListProps {
   onSelectJob: (job: AnalysisJob) => void;
 }
 
+export const JobStatusBadge: React.FC<{ status: string }> = ({ status }) => {
+  return (
+    <span
+      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+        status === 'completed'
+          ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+          : status === 'failed'
+          ? 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'
+          : status === 'running'
+          ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400'
+          : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
+      }`}
+    >
+      {status === 'running' && <Loader2 className="animate-spin h-3 w-3 mr-1" />}
+      {status.charAt(0).toUpperCase() + status.slice(1)}
+    </span>
+  );
+};
+
 const JobList: React.FC<JobListProps> = ({
   jobs,
   isLoading,
@@ -94,26 +113,6 @@ const JobList: React.FC<JobListProps> = ({
         </tbody>
       </table>
     </div>
-  );
-};
-
-// Extract JobStatusBadge as a reusable component
-export const JobStatusBadge: React.FC<{ status: string }> = ({ status }) => {
-  return (
-    <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-        status === 'completed'
-          ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
-          : status === 'failed'
-          ? 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'
-          : status === 'running'
-          ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400'
-          : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
-      }`}
-    >
-      {status === 'running' && <Loader2 className="animate-spin h-3 w-3 mr-1" />}
-      {status.charAt(0).toUpperCase() + status.slice(1)}
-    </span>
   );
 };
 

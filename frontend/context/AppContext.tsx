@@ -1,25 +1,25 @@
 // context/AppContext.tsx
 'use client'
 
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
-import { Repository, AnalysisJob, AnalysisRequest } from '@/types';
+import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect } from 'react';
+import { Repository, AnalysisJob, AnalysisRequest, AnalysisData } from '@/types';
 import { apiService, ApiResponse } from '@/services/api';
+import { useRepositoryStore } from '@/store/useRepositoryStore';
 
 interface AppContextValue {
   // Active tab
-  activeTab: 'discover' | 'jobs' | 'results';
-  setActiveTab: (tab: 'discover' | 'jobs' | 'results') => void;
+  activeTab: 'discover' | 'repositories' | 'jobs' | 'results';
+  setActiveTab: (tab: 'discover' | 'repositories' | 'jobs' | 'results') => void;
   
-  // Repositories
-  repositories: Repository[];
-  isLoadingRepositories: boolean;
-  repositoriesError: string | null;
-  selectedRepo: Repository | null;
-  setSelectedRepo: (repo: Repository | null) => void;
+  // Repository discovery
+  discoveredRepositories: Repository[];
+  isDiscovering: boolean;
+  discoverError: string | null;
   discoverRepositories: (baseDir: string, depth?: number) => Promise<Repository[]>;
-  clearRepositories: () => void;
+  clearDiscoveredRepositories: () => void;
+  saveDiscoveredRepository: (repo: Repository) => Promise<Repository | null>;
   
-  // Analysis jobs
+  // Jobs
   jobs: AnalysisJob[];
   isLoadingJobs: boolean;
   jobsError: string | null;
@@ -29,6 +29,13 @@ interface AppContextValue {
   startAnalysis: (request: AnalysisRequest) => Promise<AnalysisJob | null>;
   fetchJob: (jobId: string) => Promise<AnalysisJob | null>;
   
+  // Analysis results
+  analysisResults: AnalysisData | null;
+  analysisReport: string | null;
+  isLoadingResults: boolean;
+  resultsError: string | null;
+  fetchResults: (jobId: string) => Promise<void>;
+  
   // Common state
   setError: (error: string | null) => void;
   clearError: () => void;
@@ -36,53 +43,85 @@ interface AppContextValue {
 
 const AppContext = createContext<AppContextValue | undefined>(undefined);
 
+export function useAppContext() {
+  const context = useContext(AppContext);
+  if (context === undefined) {
+    throw new Error('useAppContext must be used within an AppProvider');
+  }
+  return context;
+}
+
 export function AppProvider({ children }: { children: ReactNode }) {
   // Tab state
-  const [activeTab, setActiveTab] = useState<'discover' | 'jobs' | 'results'>('discover');
+  const [activeTab, setActiveTab] = useState<'discover' | 'repositories' | 'jobs' | 'results'>('discover');
   
-  // Repository state
-  const [repositories, setRepositories] = useState<Repository[]>([]);
-  const [isLoadingRepositories, setIsLoadingRepositories] = useState<boolean>(false);
-  const [repositoriesError, setRepositoriesError] = useState<string | null>(null);
-  const [selectedRepo, setSelectedRepo] = useState<Repository | null>(null);
+  // Repository discovery state
+  const [discoveredRepositories, setDiscoveredRepositories] = useState<Repository[]>([]);
+  const [isDiscovering, setIsDiscovering] = useState<boolean>(false);
+  const [discoverError, setDiscoverError] = useState<string | null>(null);
   
   // Jobs state
   const [jobs, setJobs] = useState<AnalysisJob[]>([]);
   const [isLoadingJobs, setIsLoadingJobs] = useState<boolean>(false);
   const [jobsError, setJobsError] = useState<string | null>(null);
-  const [selectedJobState, setSelectedJobState] = useState<AnalysisJob | null>(null);
+  const [selectedJob, setSelectedJobState] = useState<AnalysisJob | null>(null);
   
-  // Repository management functions
+  // Analysis results state
+  const [analysisResults, setAnalysisResults] = useState<AnalysisData | null>(null);
+  const [analysisReport, setAnalysisReport] = useState<string | null>(null);
+  const [isLoadingResults, setIsLoadingResults] = useState<boolean>(false);
+  const [resultsError, setResultsError] = useState<string | null>(null);
+  
+  // Get repository store functions
+  const { createRepository } = useRepositoryStore();
+  
+  // Load jobs on first render
+  useEffect(() => {
+    fetchJobs();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
+  // Repository discovery functions
   const discoverRepositories = useCallback(async (baseDir: string, depth: number = 2): Promise<Repository[]> => {
-    setIsLoadingRepositories(true);
-    setRepositoriesError(null);
+    setIsDiscovering(true);
+    setDiscoverError(null);
     
     try {
       const result = await apiService.discoverRepositories(baseDir, depth);
       
       if (result.error) {
-        setRepositoriesError(result.error);
+        setDiscoverError(result.error);
         return [];
       }
       
       if (result.data) {
-        setRepositories(result.data);
+        setDiscoveredRepositories(result.data);
         return result.data;
       }
       
       return [];
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      setRepositoriesError(errorMessage);
+      setDiscoverError(errorMessage);
       return [];
     } finally {
-      setIsLoadingRepositories(false);
+      setIsDiscovering(false);
     }
   }, []);
   
-  const clearRepositories = useCallback(() => {
-    setRepositories([]);
+  const clearDiscoveredRepositories = useCallback(() => {
+    setDiscoveredRepositories([]);
   }, []);
+  
+  const saveDiscoveredRepository = useCallback(async (repo: Repository): Promise<Repository | null> => {
+    try {
+      // Save the repository to the database using the repository store
+      return await createRepository(repo);
+    } catch (error) {
+      setDiscoverError(error instanceof Error ? error.message : 'Failed to save repository');
+      return null;
+    }
+  }, [createRepository]);
   
   // Job management functions
   const fetchJobs = useCallback(async (): Promise<AnalysisJob[]> => {
@@ -126,8 +165,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       
       // Update the job in the jobs array if it exists
       if (result.data) {
-        setJobs(prevJobs => {
-          const jobIndex = prevJobs.findIndex(j => j.id === result.data?.id);
+        setJobs((prevJobs: AnalysisJob[]) => {
+          const jobIndex = prevJobs.findIndex((j: AnalysisJob) => j.id === result.data?.id);
           if (jobIndex >= 0) {
             const newJobs = [...prevJobs];
             newJobs[jobIndex] = result.data!;
@@ -163,7 +202,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       
       // Add the new job to the jobs list if it exists
       if (result.data) {
-        setJobs(prevJobs => [result.data!, ...prevJobs]);
+        setJobs((prevJobs: AnalysisJob[]) => [result.data!, ...prevJobs]);
         return result.data;
       }
       
@@ -177,10 +216,38 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   }, []);
   
+  // Analysis results functions
+  const fetchResults = useCallback(async (jobId: string): Promise<void> => {
+    setIsLoadingResults(true);
+    setResultsError(null);
+    
+    try {
+      // Fetch both data and report in parallel
+      const [dataResult, reportResult] = await Promise.all([
+        apiService.getAnalysisData(jobId),
+        apiService.getAnalysisReport(jobId).catch(() => ({ error: "Couldn't fetch report" } as ApiResponse<{ content: string }>))
+      ]);
+      
+      if (dataResult.error) {
+        setResultsError(dataResult.error);
+        return;
+      }
+      
+      // Set the analysis results
+      setAnalysisResults(dataResult.data || null);
+      setAnalysisReport(reportResult.error ? null : (reportResult.data ? reportResult.data.content : null));
+    } catch (error) {
+      setResultsError(error instanceof Error ? error.message : 'An unknown error occurred');
+    } finally {
+      setIsLoadingResults(false);
+    }
+  }, []);
+  
   // Common error handling
   const setError = useCallback((error: string | null) => {
-    setRepositoriesError(error);
+    setDiscoverError(error);
     setJobsError(error);
+    setResultsError(error);
   }, []);
   
   const clearError = useCallback(() => {
@@ -192,29 +259,36 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setSelectedJobState(job);
     if (job) {
       setActiveTab('results');
+      // Automatically fetch results for the selected job
+      fetchResults(job.id);
     }
-  }, []);
+  }, [fetchResults]);
   
   const value: AppContextValue = {
     activeTab,
     setActiveTab,
     
-    repositories,
-    isLoadingRepositories,
-    repositoriesError,
-    selectedRepo,
-    setSelectedRepo,
+    discoveredRepositories,
+    isDiscovering,
+    discoverError,
     discoverRepositories,
-    clearRepositories,
+    clearDiscoveredRepositories,
+    saveDiscoveredRepository,
     
     jobs,
     isLoadingJobs,
     jobsError,
-    selectedJob: selectedJobState,
+    selectedJob,
     setSelectedJob,
     fetchJobs,
     startAnalysis,
     fetchJob,
+    
+    analysisResults,
+    analysisReport,
+    isLoadingResults,
+    resultsError,
+    fetchResults,
     
     setError,
     clearError
@@ -225,12 +299,4 @@ export function AppProvider({ children }: { children: ReactNode }) {
       {children}
     </AppContext.Provider>
   );
-}
-
-export function useAppContext() {
-  const context = useContext(AppContext);
-  if (context === undefined) {
-    throw new Error('useAppContext must be used within an AppProvider');
-  }
-  return context;
 }
