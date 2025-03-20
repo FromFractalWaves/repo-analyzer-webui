@@ -5,8 +5,8 @@ from typing import List, Optional, Dict
 import json
 import sqlite3
 from datetime import datetime
-from backend.db.database import db
-from backend.models.repository import Repository, RepositoryFilter
+from app.db.database import db
+from app.models.repository import Repository, RepositoryFilter
 
 class RepositoryService:
     def __init__(self):

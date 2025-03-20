@@ -1,10 +1,10 @@
 # backend/api/routes.py
 from fastapi import FastAPI, BackgroundTasks, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from backend.services.job_manager import job_manager
-from backend.services.repository_service import repository_service
-from backend.models.job import AnalysisRequest, AnalysisJob
-from backend.models.repository import Repository, RepositoryFilter
+from app.services.job_manager import job_manager
+from app.services.repository_service import repository_service
+from app.models.job import AnalysisRequest, AnalysisJob
+from app.models.repository import Repository, RepositoryFilter
 from typing import List, Optional, Dict
 import os
 import stat

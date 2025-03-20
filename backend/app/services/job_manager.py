@@ -3,10 +3,10 @@ import uuid
 import os
 from datetime import datetime
 from typing import List, Optional
-from backend.db.database import db
-from backend.models.job import AnalysisJob
-from backend.services.analysis import analysis_service
-from backend.config import settings
+from app.db.database import db
+from app.models.job import AnalysisJob
+from app.services.analysis import analysis_service
+from app.config import settings
 
 class JobManager:
     def create_job(self, repo_path: str, recursive: bool = True, skip_confirmation: bool = True, repo_id: Optional[str] = None) -> AnalysisJob:

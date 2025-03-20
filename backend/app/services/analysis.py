@@ -2,7 +2,7 @@
 import subprocess
 import os
 from datetime import datetime
-from backend.config import settings
+from app.config import settings
 
 class AnalysisService:
     def __init__(self):

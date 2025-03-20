@@ -1,7 +1,7 @@
 # backend/db/database.py
 import sqlite3
 from contextlib import contextmanager
-from backend.config import settings
+from app.config import settings
 
 class Database:
     def __init__(self):
