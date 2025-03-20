@@ -64,3 +64,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Next.js build output
+frontend/.next/
+frontend/out/
+
+# Node modules
+frontend/node_modules/
+
+# Any other node_modules that might exist elsewhere
+**/node_modules/
+
+# Environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
