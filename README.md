@@ -1,6 +1,8 @@
-# Repository Analyzer
+# Repository Analyzer WebUI
 
-A versatile tool for analyzing Git repositories, extracting commit history, branch information, and generating insightful statistics and visualizations. Available in both CLI and Web UI versions.
+this is just a placeholder. 
+after you add from the discovery repos, and it takes you to the process page, just refresh. just incase someone uses this before i fix it.
+so heres what claude said to "can you update this for the webui version?"
 
 ## Features
 
