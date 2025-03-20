@@ -7,6 +7,7 @@ class Database:
     def __init__(self):
         self.db_path = settings.DATABASE_URL.replace("sqlite:///", "")
         self._init_db()
+        self.ensure_job_storage_tables()
 
     def _init_db(self):
         """Initialize the database with enhanced schema."""
@@ -59,6 +60,37 @@ class Database:
             conn.execute("CREATE INDEX IF NOT EXISTS idx_repos_last_accessed ON repositories(last_accessed)")
             conn.execute("CREATE INDEX IF NOT EXISTS idx_jobs_status ON jobs(status)")
             conn.execute("CREATE INDEX IF NOT EXISTS idx_jobs_repo_id ON jobs(repo_id)")
+            
+            conn.commit()
+
+        # Add this method to the Database class in app/db/database.py
+
+    def ensure_job_storage_tables(self):
+        """Create tables for storing job report content and analysis data."""
+        with self.get_connection() as conn:
+            # Create table for job reports
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS job_reports (
+                    job_id TEXT PRIMARY KEY,
+                    report_content TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    FOREIGN KEY (job_id) REFERENCES jobs(id)
+                )
+            """)
+            
+            # Create table for job data
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS job_data (
+                    job_id TEXT PRIMARY KEY,
+                    analysis_data TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    FOREIGN KEY (job_id) REFERENCES jobs(id)
+                )
+            """)
+            
+            # Add indexes
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_job_reports_job_id ON job_reports(job_id)")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_job_data_job_id ON job_data(job_id)")
             
             conn.commit()
 

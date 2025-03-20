@@ -10,6 +10,7 @@ import os
 import stat
 import time
 import json
+import math
 from app.config import settings
 
 app = FastAPI(title="Repo-Analyzer API")
@@ -68,40 +69,76 @@ async def get_job(job_id: str):
 async def get_report(job_id: str):
     """Get the report for a completed job."""
     try:
+        # Check job status
         job = job_manager.get_job(job_id)
         if job.status != "completed":
             raise HTTPException(status_code=400, detail="Job is not completed")
-        if not job.report_path or not os.path.exists(job.report_path):
-            raise HTTPException(status_code=404, detail="Report not found")
         
-        with open(job.report_path, "r") as f:
-            report_content = f.read()
-        return {"content": report_content}
+        # Try to get report from database first
+        report_content = job_manager.get_job_report(job_id)
+        
+        if report_content:
+            # Return report from database
+            return {"content": report_content}
+        elif job.report_path and os.path.exists(job.report_path):
+            # Fall back to file system for backward compatibility
+            with open(job.report_path, "r") as f:
+                report_content = f.read()
+            return {"content": report_content}
+        else:
+            raise HTTPException(status_code=404, detail="Report not found")
     except Exception as e:
         if isinstance(e, HTTPException):
             raise e
         raise HTTPException(status_code=404, detail=str(e))
+
 
 @app.get("/jobs/{job_id}/data")
 async def get_data(job_id: str):
     """Get the raw data for a completed job."""
     try:
+        # Check job status
         job = job_manager.get_job(job_id)
         if job.status != "completed":
             raise HTTPException(status_code=400, detail="Job is not completed")
         
-        data_path = os.path.join(settings.REPORTS_DIR, job_id, "repo_data.json")
-        if not os.path.exists(data_path):
-            raise HTTPException(status_code=404, detail="Data file not found")
+        # Try to get data from database first
+        data = job_manager.get_job_data(job_id)
         
-        with open(data_path, "r") as f:
-            data = json.load(f)
-        return data
+        if data:
+            # Return data from database
+            return data
+        else:
+            # Fall back to file system for backward compatibility
+            data_path = os.path.join(settings.REPORTS_DIR, job_id, "repo_data.json")
+            if not os.path.exists(data_path):
+                raise HTTPException(status_code=404, detail="Data file not found")
+            
+            with open(data_path, "r") as f:
+                # Sanitize the data to handle any inf/nan values
+                def sanitize_json(obj):
+                    if isinstance(obj, dict):
+                        return {k: sanitize_json(v) for k, v in obj.items()}
+                    elif isinstance(obj, list):
+                        return [sanitize_json(item) for item in obj]
+                    elif isinstance(obj, float) and (math.isinf(obj) or math.isnan(obj)):
+                        # Replace infinity and NaN with null
+                        return None
+                    else:
+                        return obj
+                        
+                try:
+                    data = json.load(f)
+                    # Sanitize the data
+                    sanitized_data = sanitize_json(data)
+                    return sanitized_data
+                except json.JSONDecodeError:
+                    raise HTTPException(status_code=500, detail="Error decoding JSON data")
     except Exception as e:
         if isinstance(e, HTTPException):
             raise e
         raise HTTPException(status_code=404, detail=str(e))
-
+        
 @app.get("/browse_directory")
 async def browse_directory(directory: str):
     """Browse a directory and return its contents."""
