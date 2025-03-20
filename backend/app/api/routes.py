@@ -10,7 +10,7 @@ import os
 import stat
 import time
 import json
-from backend.config import settings
+from app.config import settings
 
 app = FastAPI(title="Repo-Analyzer API")
 

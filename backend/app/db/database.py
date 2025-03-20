@@ -1,4 +1,3 @@
-# backend/db/database.py
 import sqlite3
 from contextlib import contextmanager
 from app.config import settings
@@ -6,6 +5,7 @@ from app.config import settings
 class Database:
     def __init__(self):
         self.db_path = settings.DATABASE_URL.replace("sqlite:///", "")
+        # No need to create directory here since it's handled in config.py
         self._init_db()
 
     def _init_db(self):
@@ -43,7 +43,6 @@ class Database:
             """)
             
             # Add foreign key from repositories to jobs for last_analysis_job_id
-            # This is a separate step to handle circular reference
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS repository_job_links (
                     repository_id TEXT,

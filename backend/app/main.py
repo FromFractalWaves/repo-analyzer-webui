@@ -1,6 +1,6 @@
 # backend/main.py
-from .api.routes import app
-from ..config import settings
+from app.api.routes import app
+from app.config import settings
 import uvicorn
 
 if __name__ == "__main__":

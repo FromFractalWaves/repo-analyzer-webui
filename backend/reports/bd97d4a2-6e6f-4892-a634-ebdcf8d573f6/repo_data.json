@@ -1,0 +1,490 @@
+{
+  "commit_data": {
+    "repo-analyzer": [
+      {
+        "hash": "a4394a17ec50162075d7956ece9103f0aa180ca2",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T14:14:09",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T14:14:09",
+        "message": "check"
+      },
+      {
+        "hash": "64328e6133dd9d8cc0e41d3cf9c34e17658c45ef",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T12:38:34",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T12:38:34",
+        "message": "backend debugging"
+      },
+      {
+        "hash": "bbfb0463198b191acb98ef33bebfa51e66c9cf65",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T12:25:28",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T12:25:28",
+        "message": "backend debugging"
+      },
+      {
+        "hash": "47c2e28d508ecd06fc4da76d60492f61e17f5751",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T12:14:49",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T12:14:49",
+        "message": "backend debugging"
+      },
+      {
+        "hash": "c0d72fff090edd4dc8321b620ce7161638cbae49",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T11:46:09",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T11:46:09",
+        "message": "haha this is great"
+      },
+      {
+        "hash": "06b1f2b5940ef6a7600dd09cf98e53a8fbeee378",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T11:43:12",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T11:43:12",
+        "message": "whew"
+      },
+      {
+        "hash": "fa4c89e49b21323d83ce1e3672ffd9b79aea94c9",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T11:33:53",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T11:33:53",
+        "message": "more progress"
+      },
+      {
+        "hash": "5c40cdb3743c85242e8ecf432f00bdad79f95540",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T11:01:09",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T11:01:09",
+        "message": "making something"
+      },
+      {
+        "hash": "4a9b57921b0b066613a98e3565e77b0795f2f6cb",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T10:51:00",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T10:51:00",
+        "message": "ok, i updated the backend/ and openAPI in the project knowledge."
+      },
+      {
+        "hash": "c1b12f1784d0bf4b32f005371e0113409347463a",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T10:42:45",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T10:42:45",
+        "message": "upgrade"
+      },
+      {
+        "hash": "eacaed7fc751b54e3e4ed840bb40b51dc2088cd9",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T09:47:27",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T09:47:27",
+        "message": "1 2:"
+      },
+      {
+        "hash": "0a52ea5191d293ecf300c74cd1e168772672abe9",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T09:39:07",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T09:39:07",
+        "message": "good morning"
+      },
+      {
+        "hash": "2195beb9014b6bbaeaac8250b0fe71d68702f0cf",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T00:38:24",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T00:38:24",
+        "message": "yay"
+      },
+      {
+        "hash": "fe4f5f542dec1b9fc729cd91871afb33c2970eb7",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T00:38:06",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T00:38:06",
+        "message": "good"
+      },
+      {
+        "hash": "19fee2e6401c2be5cd2c9fc4d584c338f1dd2cc8",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T00:28:47",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T00:28:47",
+        "message": "oop 2"
+      },
+      {
+        "hash": "ff793b8c8f5dd7ca44b1fddf8700663957be9ee0",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-13T00:28:34",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-13T00:28:34",
+        "message": "ok"
+      },
+      {
+        "hash": "fa6d376817378c5743cb354c641c2a13337f94cc",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T23:55:12",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T23:55:12",
+        "message": "working"
+      },
+      {
+        "hash": "8c89bd18dd28aecbe653a1089694cb02d00a21ec",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T22:45:11",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T22:45:11",
+        "message": "trim?"
+      },
+      {
+        "hash": "17f67a85115c0a896c31df96ddf906d65d46e61a",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T22:11:16",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T22:11:16",
+        "message": "oops to much"
+      },
+      {
+        "hash": "5445d07e16617f5424ced525e5ea564397fa9496",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T21:28:19",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T21:28:19",
+        "message": "oops but good"
+      },
+      {
+        "hash": "f9f2d8ab8ea0f418a9ee0cd273ae074bc9a34f85",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T21:27:28",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T21:27:28",
+        "message": "i fucked this up"
+      },
+      {
+        "hash": "1fa87447d6826e5eda1f0d5afa91f05fefa27f93",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T21:04:27",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T21:04:27",
+        "message": "some stuff"
+      },
+      {
+        "hash": "fcc9fdfe93a3e5b2f6da0753ae848e823d252d32",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T21:04:16",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T21:04:16",
+        "message": "updated"
+      },
+      {
+        "hash": "6d3564d6230c6f2e05f1afb2a4ccb644979bd4a4",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T21:02:22",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T21:02:22",
+        "message": "super cool and even more better"
+      },
+      {
+        "hash": "5819c90f6df55be0f11192a1070ed844b1d67767",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T21:02:03",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T21:02:03",
+        "message": "super cool and"
+      },
+      {
+        "hash": "3157426b333e631126f1669b79aa9c1daae34801",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T20:48:03",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T20:48:03",
+        "message": "super cool and better"
+      },
+      {
+        "hash": "6b3af797d949a540d41b2480de84cde302093958",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T20:39:08",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T20:39:08",
+        "message": "new use"
+      },
+      {
+        "hash": "066224ab55876e70113e3b58083c5518ce4ec260",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T20:36:38",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T20:36:38",
+        "message": "super cool"
+      },
+      {
+        "hash": "160ca2ad64f77527379b7a89323751bb13d9bec5",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T20:31:37",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T20:31:37",
+        "message": "upgraded"
+      },
+      {
+        "hash": "2ecebe7907d2962a79117668a96126c9e0f7562e",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T20:19:04",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T20:19:04",
+        "message": "some structure"
+      },
+      {
+        "hash": "84a819051e620182c480e8375e90b15c01718186",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T20:03:31",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T20:03:31",
+        "message": "fixed oops"
+      },
+      {
+        "hash": "c068e747413f8d4297c7f9ec4763afb05d517a05",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T20:03:01",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T20:03:01",
+        "message": "stuff"
+      },
+      {
+        "hash": "1e9389675bc9f3ce4e4add50c534fe662b9cb012",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T18:07:16",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T18:07:16",
+        "message": "ready to push"
+      },
+      {
+        "hash": "3f9b16dc10ccecdc1b531c976588e326d7566131",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T17:40:30",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T17:40:30",
+        "message": "updated"
+      },
+      {
+        "hash": "d86f73c83fe8302483e2bd711b6a26c325e43086",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T17:35:51",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T17:35:51",
+        "message": "progress"
+      },
+      {
+        "hash": "66a2287ef74f4b31be4501c4868806c26f220203",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T17:01:38",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T17:01:38",
+        "message": "no good"
+      },
+      {
+        "hash": "84832a877b36244be93b2bb06e68896b21dca402",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T16:53:03",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T16:53:03",
+        "message": "updates"
+      },
+      {
+        "hash": "9a8f48f47c7a21f2b0e9b97fbc197aa065ad1291",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T16:41:59",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T16:41:59",
+        "message": "update"
+      },
+      {
+        "hash": "4effe7e9d7b248bde516824969e330cd870c1a18",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T16:40:53",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T16:40:53",
+        "message": "init commit"
+      },
+      {
+        "hash": "9b56078a24ab99fdb2d9e7f30e88847c0f7f6fe1",
+        "author": "FromFractalWaves",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2025-03-12T16:40:39",
+        "committer": "FromFractalWaves",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2025-03-12T16:40:39",
+        "message": "0"
+      }
+    ]
+  },
+  "branch_data": {
+    "repo-analyzer": [
+      {
+        "name": "distil",
+        "is_current": true
+      },
+      {
+        "name": "main",
+        "is_current": false
+      },
+      {
+        "name": "next",
+        "is_current": false
+      },
+      {
+        "name": "what",
+        "is_current": false
+      }
+    ]
+  },
+  "code_stats": {
+    "repo-analyzer": {
+      "total_lines": 71850,
+      "file_count": 4
+    }
+  },
+  "summary_stats": {
+    "repo-analyzer": {
+      "num_commits": 40,
+      "num_branches": 4,
+      "total_lines": 71850,
+      "file_count": 4,
+      "file_extensions": {},
+      "first_commit": "2025-03-12T16:40:39",
+      "last_commit": "2025-03-13T14:14:09",
+      "time_span": 77610.0,
+      "commits_per_day": 40.0,
+      "avg_time_between_commits": 1990.0,
+      "min_time_between_commits": 11.0,
+      "max_time_between_commits": 32443.0,
+      "frequent_words": {
+        "and": 4,
+        "good": 4,
+        "super": 4,
+        "cool": 4,
+        "backend": 3,
+        "debugging": 3,
+        "updated": 3,
+        "oops": 3,
+        "this": 2,
+        "more": 2
+      },
+      "peak_pace_commits": 5,
+      "peak_pace_duration": 984.0,
+      "peak_pace_start": "2025-03-12T20:48:03",
+      "peak_pace_end": "2025-03-12T21:04:27",
+      "peak_commits_per_minute": 0.3048780487804878,
+      "lines_per_commit": 1796.25
+    }
+  },
+  "aggregate_stats": {
+    "total_commits": 40,
+    "total_branches": 4,
+    "total_lines": 71850,
+    "repos_analyzed": 1,
+    "first_commit": "2025-03-12T16:40:39",
+    "last_commit": "2025-03-13T14:14:09",
+    "time_span": 77610.0,
+    "overall_commits_per_day": 40.0,
+    "frequent_words": {
+      "and": 4,
+      "good": 4,
+      "super": 4,
+      "cool": 4,
+      "backend": 3,
+      "debugging": 3,
+      "updated": 3,
+      "oops": 3,
+      "this": 2,
+      "more": 2
+    },
+    "fastest_pace": 11.0,
+    "fastest_pace_repo": "repo-analyzer"
+  }
+}
