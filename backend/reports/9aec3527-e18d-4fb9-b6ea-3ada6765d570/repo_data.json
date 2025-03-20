@@ -1,0 +1,532 @@
+{
+  "commit_data": {
+    "ComplexSpace": [
+      {
+        "hash": "9840c3af3711bd683d15a5a59c69e514be1e55a7",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-29T12:07:31",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-29T12:07:31",
+        "message": "initial"
+      }
+    ],
+    "STClients": [
+      {
+        "hash": "57f84150ec925d33f11d55fc1d842519f1e6de72",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-23T16:37:56",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-23T16:37:56",
+        "message": "gui collection for the double d"
+      },
+      {
+        "hash": "f670a5109133b843f901f84ef14de1ee2008b734",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-23T16:24:57",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-23T16:24:57",
+        "message": "initial commit"
+      }
+    ],
+    "DDCompute-v3": [
+      {
+        "hash": "d20ed126495b07c599a7c21c252be16c8023d392",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-27T10:18:06",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-27T10:18:06",
+        "message": "many mods"
+      },
+      {
+        "hash": "82f41f5e759cb486ae70c2f9447f38a9fa4305d5",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-26T21:29:49",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-26T21:29:49",
+        "message": "starting point"
+      },
+      {
+        "hash": "c0c5c34f56f35b7136e31d563e33f3f5412d6f3a",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-26T16:18:05",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-26T16:18:05",
+        "message": "im"
+      }
+    ],
+    "DDCompute": [
+      {
+        "hash": "6ba27c9fbe4a2575131bf41b07cfdf7dc5b81c24",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-24T11:03:43",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-24T11:03:43",
+        "message": "almost working"
+      },
+      {
+        "hash": "3954d9f99c57165ad8602f6e9271ffac8866c6df",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-24T07:18:16",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-24T07:18:16",
+        "message": "goodness"
+      },
+      {
+        "hash": "1e844e001972943c202af608dc4bb53ba2161950",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-23T21:18:33",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-23T21:18:33",
+        "message": "start"
+      },
+      {
+        "hash": "b838dddeefbe62d3888072529ed99e3d588231ed",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-23T18:25:37",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-23T18:25:37",
+        "message": "model manager, database, middlewARE, middle of where, what am i doing"
+      },
+      {
+        "hash": "73594fec79a2b3613595d0cc1a7e910dca74b89b",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-23T16:26:27",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-23T16:26:27",
+        "message": "initial commit"
+      }
+    ],
+    "modelsAPI": [
+      {
+        "hash": "64a3fefbba8b34c1b09ba11ed98eda9a62d96f64",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-30T11:29:48",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-30T11:29:48",
+        "message": "hope this works"
+      },
+      {
+        "hash": "13587bf323be0f6b4755ad3b6634b23030e7c3c7",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-28T14:14:02",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-28T14:14:02",
+        "message": "new funtion"
+      },
+      {
+        "hash": "943b5a04c3c1e9a9c923f19f71f3bc32b02a1042",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-28T13:50:54",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-28T13:50:54",
+        "message": "fixed ddids"
+      },
+      {
+        "hash": "b7fdc303ca7d6abeaba6125d75d90734eab5de6a",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-27T15:03:16",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-27T15:03:16",
+        "message": "i can't belive its running again so fast"
+      },
+      {
+        "hash": "46c9cc9832cbabf0a168266f991e117100ac531e",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-27T14:15:50",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-27T14:15:50",
+        "message": "before i break it"
+      },
+      {
+        "hash": "c988665f7e63830f2176091887231d4432f4d55d",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-27T13:31:26",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-27T13:31:26",
+        "message": "finally a modular core tool"
+      },
+      {
+        "hash": "3f63c9b91aaf4b42530b60fdf621a63f4f61aa95",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-27T12:53:39",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-27T12:53:39",
+        "message": "starter"
+      },
+      {
+        "hash": "a60583cf64d2fdce7ef53bb8feb36d1024dd7fe3",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-27T12:53:23",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-27T12:53:23",
+        "message": "i m"
+      }
+    ],
+    "DDCompute-v2": [
+      {
+        "hash": "16c052beb1f41edf26d70101c748ec4f91897d07",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-26T12:28:35",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-26T12:28:35",
+        "message": "this is a start point"
+      },
+      {
+        "hash": "94c2af36a3a6b4e26bb4555ff15b3a54d34ac4c1",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-25T16:37:04",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-25T16:37:04",
+        "message": "update tests"
+      },
+      {
+        "hash": "1ee30d955a09ea08a663f61a5d593e69d1a9c1ae",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-25T16:32:34",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-25T16:32:34",
+        "message": "added tests"
+      },
+      {
+        "hash": "cb3c62cc9b03f3146a5fbab5e332238fe4a2231b",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-25T15:39:37",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-25T15:39:37",
+        "message": "finally working maybe"
+      },
+      {
+        "hash": "2838bc7b471872acea854e63867bf34245e02998",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-25T14:53:44",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-25T14:53:44",
+        "message": "pre"
+      },
+      {
+        "hash": "6d28e3b38123dbcd56810363e1d8fe6d23bdebb6",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-25T10:33:05",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-25T10:33:05",
+        "message": "ui working earlier this time"
+      },
+      {
+        "hash": "1328e9d866f22cb8b703237f43e2de2f8628566f",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-24T14:17:27",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-24T14:17:27",
+        "message": "start"
+      },
+      {
+        "hash": "238410ce3ef055bade2828c037d80666cd2c7075",
+        "author": "Ethan",
+        "author_email": "ems910@outlook.com",
+        "author_date": "2024-11-24T13:53:06",
+        "committer": "Ethan",
+        "committer_email": "ems910@outlook.com",
+        "commit_date": "2024-11-24T13:53:06",
+        "message": "i m"
+      }
+    ]
+  },
+  "branch_data": {
+    "ComplexSpace": [
+      {
+        "name": "main",
+        "is_current": true
+      }
+    ],
+    "STClients": [
+      {
+        "name": "master",
+        "is_current": true
+      }
+    ],
+    "DDCompute-v3": [
+      {
+        "name": "master",
+        "is_current": true
+      }
+    ],
+    "DDCompute": [
+      {
+        "name": "master",
+        "is_current": true
+      }
+    ],
+    "modelsAPI": [
+      {
+        "name": "master",
+        "is_current": true
+      }
+    ],
+    "DDCompute-v2": [
+      {
+        "name": "master",
+        "is_current": true
+      }
+    ]
+  },
+  "code_stats": {
+    "ComplexSpace": {
+      "total_lines": 190075,
+      "file_count": 0
+    },
+    "STClients": {
+      "total_lines": 574,
+      "file_count": 2
+    },
+    "DDCompute-v3": {
+      "total_lines": 18098,
+      "file_count": 1
+    },
+    "DDCompute": {
+      "total_lines": 15683,
+      "file_count": 1
+    },
+    "modelsAPI": {
+      "total_lines": 14917,
+      "file_count": 1
+    },
+    "DDCompute-v2": {
+      "total_lines": 16157,
+      "file_count": 1
+    }
+  },
+  "summary_stats": {
+    "ComplexSpace": {
+      "num_commits": 1,
+      "num_branches": 1,
+      "total_lines": 190075,
+      "file_count": 0,
+      "file_extensions": {},
+      "first_commit": "2024-11-29T12:07:31",
+      "last_commit": "2024-11-29T12:07:31",
+      "time_span": 0.0,
+      "commits_per_day": 1.0,
+      "avg_time_between_commits": 0,
+      "min_time_between_commits": 0,
+      "max_time_between_commits": 0,
+      "frequent_words": {
+        "initial": 1
+      },
+      "lines_per_commit": 190075.0
+    },
+    "STClients": {
+      "num_commits": 2,
+      "num_branches": 1,
+      "total_lines": 574,
+      "file_count": 2,
+      "file_extensions": {},
+      "first_commit": "2024-11-23T16:24:57",
+      "last_commit": "2024-11-23T16:37:56",
+      "time_span": 779.0,
+      "commits_per_day": 2.0,
+      "avg_time_between_commits": 779.0,
+      "min_time_between_commits": 779.0,
+      "max_time_between_commits": 779.0,
+      "frequent_words": {
+        "gui": 1,
+        "collection": 1,
+        "for": 1,
+        "the": 1,
+        "double": 1,
+        "d": 1,
+        "initial": 1,
+        "commit": 1
+      },
+      "lines_per_commit": 287.0
+    },
+    "DDCompute-v3": {
+      "num_commits": 3,
+      "num_branches": 1,
+      "total_lines": 18098,
+      "file_count": 1,
+      "file_extensions": {},
+      "first_commit": "2024-11-26T16:18:05",
+      "last_commit": "2024-11-27T10:18:06",
+      "time_span": 64801.0,
+      "commits_per_day": 3.0,
+      "avg_time_between_commits": 32400.5,
+      "min_time_between_commits": 18704.0,
+      "max_time_between_commits": 46097.0,
+      "frequent_words": {
+        "many": 1,
+        "mods": 1,
+        "starting": 1,
+        "point": 1,
+        "im": 1
+      },
+      "lines_per_commit": 6032.666666666667
+    },
+    "DDCompute": {
+      "num_commits": 5,
+      "num_branches": 1,
+      "total_lines": 15683,
+      "file_count": 1,
+      "file_extensions": {},
+      "first_commit": "2024-11-23T16:26:27",
+      "last_commit": "2024-11-24T11:03:43",
+      "time_span": 67036.0,
+      "commits_per_day": 5.0,
+      "avg_time_between_commits": 16759.0,
+      "min_time_between_commits": 7150.0,
+      "max_time_between_commits": 35983.0,
+      "frequent_words": {
+        "almost": 1,
+        "working": 1,
+        "goodness": 1,
+        "start": 1,
+        "model": 1,
+        "manager,": 1,
+        "database,": 1,
+        "middleware,": 1,
+        "middle": 1,
+        "of": 1
+      },
+      "lines_per_commit": 3136.6
+    },
+    "modelsAPI": {
+      "num_commits": 8,
+      "num_branches": 1,
+      "total_lines": 14917,
+      "file_count": 1,
+      "file_extensions": {},
+      "first_commit": "2024-11-27T12:53:23",
+      "last_commit": "2024-11-30T11:29:48",
+      "time_span": 254185.0,
+      "commits_per_day": 2.7192792651021893,
+      "avg_time_between_commits": 36312.142857142855,
+      "min_time_between_commits": 16.0,
+      "max_time_between_commits": 162946.0,
+      "frequent_words": {
+        "i": 3,
+        "hope": 1,
+        "this": 1,
+        "works": 1,
+        "new": 1,
+        "funtion": 1,
+        "fixed": 1,
+        "ddids": 1,
+        "can't": 1,
+        "belive": 1
+      },
+      "peak_pace_commits": 5,
+      "peak_pace_duration": 7793.0,
+      "peak_pace_start": "2024-11-27T12:53:23",
+      "peak_pace_end": "2024-11-27T15:03:16",
+      "peak_commits_per_minute": 0.038496086231233156,
+      "lines_per_commit": 1864.625
+    },
+    "DDCompute-v2": {
+      "num_commits": 8,
+      "num_branches": 1,
+      "total_lines": 16157,
+      "file_count": 1,
+      "file_extensions": {},
+      "first_commit": "2024-11-24T13:53:06",
+      "last_commit": "2024-11-26T12:28:35",
+      "time_span": 167729.0,
+      "commits_per_day": 4.120933171961915,
+      "avg_time_between_commits": 23961.285714285714,
+      "min_time_between_commits": 270.0,
+      "max_time_between_commits": 72938.0,
+      "frequent_words": {
+        "this": 2,
+        "start": 2,
+        "tests": 2,
+        "working": 2,
+        "is": 1,
+        "a": 1,
+        "point": 1,
+        "update": 1,
+        "added": 1,
+        "finally": 1
+      },
+      "peak_pace_commits": 5,
+      "peak_pace_duration": 21839.0,
+      "peak_pace_start": "2024-11-25T10:33:05",
+      "peak_pace_end": "2024-11-25T16:37:04",
+      "peak_commits_per_minute": 0.013736892714867896,
+      "lines_per_commit": 2019.625
+    }
+  },
+  "aggregate_stats": {
+    "total_commits": 27,
+    "total_branches": 6,
+    "total_lines": 255504,
+    "repos_analyzed": 6,
+    "first_commit": "2024-11-23T16:24:57",
+    "last_commit": "2024-11-30T11:29:48",
+    "time_span": 587091.0,
+    "overall_commits_per_day": 3.9734896293760253,
+    "frequent_words": {
+      "working": 3,
+      "start": 3,
+      "i": 3,
+      "this": 3,
+      "initial": 2,
+      "point": 2,
+      "tests": 2,
+      "gui": 1,
+      "collection": 1,
+      "for": 1
+    },
+    "fastest_pace": 16.0,
+    "fastest_pace_repo": "modelsAPI"
+  }
+}

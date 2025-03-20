@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository Analysis Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Repository Analysis Report</h1>
+    <p>Generated on 2025-03-20 16:01:53</p>
+
+    <h2>Repository Overview</h2>
+    <div class="grid">
+        <div class="image-container">
+            <h3>Commits by Repository</h3>
+            <img src="repo_comparison.png" alt="Repository Comparison">
+        </div>
+        <div class="image-container">
+            <h3>Lines of Code</h3>
+            <img src="lines_by_repo.png" alt="Lines of Code by Repository">
+        </div>
+    </div>
+
+    <h2>Commit Activity</h2>
+    <div class="grid">
+        <div class="image-container">
+            <h3>Commit Timeline</h3>
+            <img src="commit_timeline.png" alt="Commit Timeline">
+        </div>
+        <div class="image-container">
+            <h3>Commit Velocity</h3>
+            <img src="velocity_chart.png" alt="Commit Velocity">
+        </div>
+    </div>
+
+    <h2>Work Patterns</h2>
+    <div class="image-container">
+        <h3>Commit Activity by Hour and Day</h3>
+        <img src="commit_heatmap.png" alt="Commit Heatmap">
+    </div>
+
+    <h2>Detailed Analysis</h2>
+    <p>For more detailed analysis, please check the following files:</p>
+    <ul>
+        <li><a href="repo_analysis_report.md">Repository Analysis Report (Markdown)</a></li>
+        <li><a href="repo_data.json">Raw Repository Statistics (JSON)</a></li>
+    </ul>
+</body>
+</html>
