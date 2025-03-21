@@ -6,20 +6,20 @@ import AuthorStats from './AuthorStats';
 import CommitWordCloud from './CommitWordCloud';
 import FileExtensionChart from './FileExtensionChart';
 
-// Import placeholders for components that haven't been fully implemented yet
-// These will be properly imported once they're implemented
+// Placeholder components
 const CodeDistribution = () => null;
 const BranchesOverview = () => null;
 const CommitActivity = () => null;
 
-// Export visualization metadata to make it easy to register and use visualizations
+// Export visualization metadata with more flexible data requirements
 export const VISUALIZATIONS: VisualizationMetadata[] = [
   {
     id: 'commit-timeline',
     name: 'Commit Timeline',
     description: 'Timeline of commits over time',
     component: CommitTimeline,
-    dataKeys: ['commit_data'],
+    // Make data requirements more flexible
+    dataKeys: ['commits', 'repository'],
     tags: ['commits', 'timeline']
   },
   {
@@ -27,7 +27,7 @@ export const VISUALIZATIONS: VisualizationMetadata[] = [
     name: 'Code Distribution',
     description: 'Distribution of code across repositories and file types',
     component: CodeDistribution,
-    dataKeys: ['code_stats'],
+    dataKeys: ['code_stats', 'summary'],
     tags: ['code', 'files']
   },
   {
@@ -35,7 +35,7 @@ export const VISUALIZATIONS: VisualizationMetadata[] = [
     name: 'Commit Activity Heatmap',
     description: 'Heatmap showing commit density by day and hour',
     component: CommitHeatmap,
-    dataKeys: ['commit_data'],
+    dataKeys: ['commits'],
     tags: ['commits', 'activity']
   },
   {
@@ -43,7 +43,7 @@ export const VISUALIZATIONS: VisualizationMetadata[] = [
     name: 'Author Statistics',
     description: 'Contribution statistics by author',
     component: AuthorStats,
-    dataKeys: ['commit_data'],
+    dataKeys: ['commits'],
     tags: ['authors', 'contributions']
   },
   {
@@ -51,7 +51,7 @@ export const VISUALIZATIONS: VisualizationMetadata[] = [
     name: 'Commit Message Word Cloud',
     description: 'Word cloud of frequent terms in commit messages',
     component: CommitWordCloud,
-    dataKeys: ['summary_stats'],
+    dataKeys: ['commits', 'summary'],
     tags: ['commits', 'messages']
   },
   {
@@ -59,7 +59,7 @@ export const VISUALIZATIONS: VisualizationMetadata[] = [
     name: 'Branches Overview',
     description: 'Overview of branches and their relationships',
     component: BranchesOverview,
-    dataKeys: ['branch_data'],
+    dataKeys: ['branches'],
     tags: ['branches']
   },
   {
@@ -67,7 +67,7 @@ export const VISUALIZATIONS: VisualizationMetadata[] = [
     name: 'File Types Distribution',
     description: 'Distribution of files by extension',
     component: FileExtensionChart,
-    dataKeys: ['code_stats', 'summary_stats'],
+    dataKeys: ['summary', 'code_stats'],
     tags: ['files', 'extensions']
   },
   {
@@ -75,7 +75,7 @@ export const VISUALIZATIONS: VisualizationMetadata[] = [
     name: 'Commit Activity',
     description: 'Commit activity patterns over time',
     component: CommitActivity,
-    dataKeys: ['commit_data', 'summary_stats'],
+    dataKeys: ['commits', 'summary'],
     tags: ['commits', 'activity']
   }
 ];

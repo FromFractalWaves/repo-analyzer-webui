@@ -10,17 +10,53 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { VISUALIZATIONS } from './index';
+
+// Default visualizations if none are provided
+const DEFAULT_VISUALIZATIONS = [
+  {
+    id: 'commit-timeline',
+    name: 'Commit Timeline',
+    description: 'Timeline of commits over time'
+  },
+  {
+    id: 'commit-heatmap',
+    name: 'Commit Activity Heatmap',
+    description: 'Heatmap showing commit density by day and hour'
+  },
+  {
+    id: 'author-stats',
+    name: 'Author Statistics',
+    description: 'Contribution statistics by author'
+  },
+  {
+    id: 'file-extension-chart',
+    name: 'File Types Distribution',
+    description: 'Distribution of files by extension'
+  },
+  {
+    id: 'commit-word-cloud',
+    name: 'Commit Message Word Cloud',
+    description: 'Word cloud of frequent terms in commit messages'
+  }
+];
+
+interface VisualizationConfig {
+  id: string;
+  name: string;
+  description?: string;
+}
 
 interface VisualizationSelectorProps {
   selectedVisualizations: string[];
   onSelectionChange: (visualizations: string[]) => void;
+  availableVisualizations?: VisualizationConfig[];
   className?: string;
 }
 
 const VisualizationSelector: React.FC<VisualizationSelectorProps> = ({
   selectedVisualizations,
   onSelectionChange,
+  availableVisualizations = DEFAULT_VISUALIZATIONS,
   className
 }) => {
   // Toggle a single visualization
@@ -34,7 +70,7 @@ const VisualizationSelector: React.FC<VisualizationSelectorProps> = ({
 
   // Select all visualizations
   const selectAll = () => {
-    onSelectionChange(VISUALIZATIONS.map(vis => vis.id));
+    onSelectionChange(availableVisualizations.map(vis => vis.id));
   };
 
   // Clear all selections
@@ -68,7 +104,7 @@ const VisualizationSelector: React.FC<VisualizationSelectorProps> = ({
           <DropdownMenuLabel>Select Visualizations</DropdownMenuLabel>
           <DropdownMenuSeparator />
           
-          {VISUALIZATIONS.map(vis => (
+          {availableVisualizations.map(vis => (
             <DropdownMenuCheckboxItem
               key={vis.id}
               checked={selectedVisualizations.includes(vis.id)}
