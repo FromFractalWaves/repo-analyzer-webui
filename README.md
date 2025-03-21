@@ -1,7 +1,7 @@
 # Repository Analyzer WebUI
 
 this is just a placeholder. 
-after you add from the discovery repos, and it takes you to the process page, just refresh. just incase someone uses this before i fix it.
+
 so heres what claude said to "can you update this for the webui version?"
 
 ## Features
